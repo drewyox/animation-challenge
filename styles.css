@@ -7,6 +7,56 @@
 }
 }
 
+@keyframes rainbow {
+  0% {
+    background-color: red;
+  }
+  20% {
+    background-color: orange;
+  }
+  45% {
+    background-color: yellow;
+  }
+  65% {
+    background-color: green;
+  }
+  85% {
+    background-color: blue;
+  }
+  100% {
+    background-color: purple;
+  }
+}
+
+@keyframes border-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translatex(0px) scale(1);
+  }
+  20% {
+    transform: translatex(30px) scale(1.5) ;
+  }
+
+  60% {
+    transform: translatex(-30px) scale(2.5);
+  }
+  
+  90% {
+    transform: translatex(30px) scale(3.5);
+  }
+  100%{
+    transform: translatex(0px)  scale(4);
+  }
+}
+
 #square-one {
   animation-duration: 5s;
   animation-name: square-one;
@@ -15,4 +65,44 @@
   height: 50px;
   border: solid 1px black;
   background-color: blue;
+}
+
+
+#square-two {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+
+
+#square-two:hover{
+  transition: 3s;
+ border-radius: 50%;
+}
+
+#square-three {
+  animation-name: rainbow, border-spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px dashed pink;
+}
+
+#square-three:hover {
+  /* animation-name: border-spin; */
+  animation-play-state: border-spin paused;
+}
+
+#square-four {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+#square-four:hover {
+  animation-name: wiggle;
+  animation-duration: 4s;
+  /* transform: scale(4);
+  transition: transform 4s; */
 }
