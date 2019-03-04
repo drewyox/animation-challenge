@@ -1,12 +1,20 @@
+@import 'animate';
+
+#navBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* squares */
 @keyframes square-one {
   0% {
   background-color: blue;
-}
-100% {
+  }
+  100% {
   background-color: orange;
+  }
 }
-}
-
 @keyframes rainbow {
   0% {
     background-color: red;
@@ -27,7 +35,6 @@
     background-color: purple;
   }
 }
-
 @keyframes border-spin {
   0% {
     transform: rotate(0deg);
@@ -36,73 +43,149 @@
     transform: rotate(360deg);
   }
 }
-
 @keyframes wiggle {
   0% {
     transform: translatex(0px) scale(1);
+    animation-timing-function: ease-in-out;
   }
   20% {
     transform: translatex(30px) scale(1.5) ;
+    animation-timing-function: ease-in-out;
   }
 
   60% {
     transform: translatex(-30px) scale(2.5);
+    animation-timing-function: ease-in-out;
   }
-  
+
   90% {
     transform: translatex(30px) scale(3.5);
+    animation-timing-function: ease-in-out;
   }
   100%{
     transform: translatex(0px)  scale(4);
+    animation-timing-function: ease-in-out;
   }
 }
-
 #square-one {
   animation-duration: 5s;
-  animation-name: square-one;
+  animation-name: lightSpeedIn;
   animation-iteration-count: infinite;
   width: 50px;
   height: 50px;
   border: solid 1px black;
   background-color: blue;
 }
-
-
 #square-two {
   width: 50px;
   height: 50px;
   background-color: red;
-}
-
-
-#square-two:hover{
   transition: 3s;
+}
+#square-two:hover{
  border-radius: 50%;
 }
-
 #square-three {
-  animation-name: rainbow, border-spin;
-  animation-duration: 5s;
+  animation: rainbow 5s, border-spin 5s;
   animation-iteration-count: infinite;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   border: 2px dashed pink;
+  animation-direction: alternate-reverse, normal;
 }
-
 #square-three:hover {
   /* animation-name: border-spin; */
-  animation-play-state: border-spin paused;
+  animation-play-state: running, paused;
 }
-
 #square-four {
   width: 50px;
   height: 50px;
   border: 1px solid black;
 }
 #square-four:hover {
-  animation-name: wiggle;
-  animation-duration: 4s;
+  animation: wiggle 4s;
   /* transform: scale(4);
   transition: transform 4s; */
+}
+
+@keyframes professional {
+  from {
+
+  }
+  to {
+    transform: scale(2);
+    background-color: black;
+    text-decoration: underline;
+    color: white;
+  }
+}
+
+/* navs */
+
+@keyframes turn {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes hinge {
+  0% {
+    transform: rotate(0);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  20%, 60% {
+    transform: rotate(80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  40% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  80% {
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(700px);
+  }
+}
+
+
+
+
+
+#navBar > p {
+  text-align: center;
+  height: 40px;
+  width: 75px;
+  border: 1px solid black;
+}
+
+#home:hover {
+  animation-name: turn;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+
+
+#contact:hover {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+#about {
+ animation: hinge 5s;
+ animation-iteration-count: infinite;
+ animation-direction: alternate;
 }
